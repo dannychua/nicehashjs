@@ -1,0 +1,26 @@
+{
+  "name": "nicehashjs",
+  "version": "1.0.0",
+  "description": "NiceHash API Wrapper",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dannychua/nicehashjs.git"
+  },
+  "keywords": [
+    "Nicehash"
+  ],
+  "author": "Danny Chua",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dannychua/nicehashjs/issues"
+  },
+  "homepage": "https://github.com/dannychua/nicehashjs#readme",
+  "dependencies": {
+    "got": "^7.0.0",
+    "lodash": "^4.17.4"
+  }
+}
