@@ -23,7 +23,7 @@ context('NiceHashClient', () => {
         describe('getApiVersion', () => {
             it('should correctly get the API version', () => {
                 NiceHashJS.getApiVersion().then((response) => {
-                    response.body.uri.should.eq('/api');
+                    response.request.path.should.eq('/api');
                 });
             });
         });
@@ -51,7 +51,7 @@ context('NiceHashClient', () => {
         describe('getGlobalCurrentStats', () => {
             it('should correctly get global current stats', () => {
                 return nh.getGlobalCurrentStats().then((response) => {
-                    response.body.uri.should.eql('/api?method=stats.global.current');
+                    response.request.path.should.eql('/api?method=stats.global.current');
                 })
             })
         });
@@ -59,7 +59,7 @@ context('NiceHashClient', () => {
         describe('getGlobal24hStats', () => {
             it('should correctly get global 24h stats', () => {
                 return nh.getGlobal24hStats().then((response) => {
-                    response.body.uri.should.eql('/api?method=stats.global.24h');
+                    response.request.path.should.eql('/api?method=stats.global.24h');
                 })
             })
         });
@@ -68,7 +68,7 @@ context('NiceHashClient', () => {
             it('should correctly get provider stats', () => {
                 const testAddress = `1P5PNW6Wd53QiZLdCs9EXNHmuPTX3rD6hW`;
                 return nh.getProviderStats(testAddress).then((response) => {
-                    response.body.uri.should.eql('/api?method=stats.provider&addr='+testAddress);
+                    response.request.path.should.eql('/api?method=stats.provider&addr='+testAddress);
                 })
             })
         });
@@ -77,7 +77,7 @@ context('NiceHashClient', () => {
             it('should correctly get detailed provider stats', () => {
                 const testAddress = `1P5PNW6Wd53QiZLdCs9EXNHmuPTX3rD6hW`;
                 return nh.getDetailedProviderStats(testAddress).then((response) => {
-                    response.body.uri.should.eql('/api?method=stats.provider.ex&addr='+testAddress+'&from=0');
+                    response.request.path.should.eql('/api?method=stats.provider.ex&addr='+testAddress+'&from=0');
                 })
             })
         });
@@ -87,7 +87,7 @@ context('NiceHashClient', () => {
                 const testAddress = `1P5PNW6Wd53QiZLdCs9EXNHmuPTX3rD6hW`;
                 const testAlgo = 2
                 return nh.getProviderWorkersStats(testAddress, testAlgo).then((response) => {
-                    response.body.uri.should.eql('/api?method=stats.provider.workers&addr='+testAddress+'&algo='+testAlgo);
+                    response.request.path.should.eql('/api?method=stats.provider.workers&addr='+testAddress+'&algo='+testAlgo);
                 })
             })
         });
@@ -96,7 +96,7 @@ context('NiceHashClient', () => {
             it('should correctly get all provider workers stats', () => {
                 const testAddress = `1P5PNW6Wd53QiZLdCs9EXNHmuPTX3rD6hW`;
                 return nh.getAllProviderWorkersStats(testAddress).then((response) => {
-                    response.body.uri.should.eql('/api?method=stats.provider.workers&addr='+testAddress);
+                    response.request.path.should.eql('/api?method=stats.provider.workers&addr='+testAddress);
                 })
             })
         });

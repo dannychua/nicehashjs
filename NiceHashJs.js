@@ -1,15 +1,15 @@
 const _ = require('lodash');
-const got = require('got');
+const axios = require('axios');
 const pkg = require('./package.json');
 
-const gotOptions = {
-    json: true,
-    headers: {
-        'user-agent': `node-nicehash/${pkg.version} (https://github.com/dannychua/nicehashjs)`
-    }
-};
-
 const API_BASE_URL = 'https://api.nicehash.com/api';
+const axiosConfig = {
+    baseURL: API_BASE_URL,
+    timeout: 1000,
+    headers: {
+        'user-agent': `NiceHashJs/${pkg.version} (https://github.com/dannychua/nicehashjs)`
+    }
+}
 
 const LOCATIONS = {
     0: 'Europe', 
@@ -80,6 +80,7 @@ class NiceHashClient {
     constructor(options) {
         this.apiId = _.get(options, 'apiId');
         this.apiKey = _.get(options, 'apiKey');
+        this.axios = axios.create(axiosConfig);
     }
 
     hasAuthTokens() {
@@ -92,9 +93,8 @@ class NiceHashClient {
 
     getRequestPromise(methodName, queryParams) {
         const methodObj = { method: methodName };
-        const payload = _.merge({}, gotOptions, {query: _.merge(methodObj, queryParams || {})});
-
-        return got(`${API_BASE_URL}`, payload);
+        const payload = _.merge({}, {params: _.merge(methodObj, queryParams || {})});
+        return this.axios.get('', payload)
     }
 
     // AUTHENTICATED API ENDPOINTS
@@ -204,7 +204,7 @@ class NiceHashClient {
     // PUBLIC API ENDPOINTS
 
     static getApiVersion() {
-        return got(API_BASE_URL, gotOptions);
+        return axios.get(API_BASE_URL, axiosConfig);
     }
 
     static getNiceHashAlgorithmNumberByName(algoName) {
