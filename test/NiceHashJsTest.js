@@ -48,6 +48,16 @@ context('NiceHashClient', () => {
             })
         });
 
+        describe('getAlgorithmUnitsByNiceHashNumber', () => {
+            it('should correctly get algorithm hashing speed units from NiceHash algorithm number', () => {
+                const CryptoNight = NiceHashJS.getAlgorithmUnitsByNiceHashNumber(22);
+                CryptoNight.should.eql('kH/s');
+                
+                const notFound = NiceHashJS.getAlgorithmUnitsByNiceHashNumber(123);
+                should.not.exist(notFound);
+            })
+        });
+
         describe('getGlobalCurrentStats', () => {
             it('should correctly get global current stats', () => {
                 return nh.getGlobalCurrentStats().then((response) => {

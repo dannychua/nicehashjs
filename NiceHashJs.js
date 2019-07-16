@@ -65,6 +65,53 @@ const ALGORITHMS = {
     43: 'CuckooCycle',
 };
 
+ALGORITHM_UNITS = {
+    0: 'MH/s',
+    1: 'TH/s',
+    2: 'MH/s',
+    3: 'MH/s',
+    4: 'MH/s',
+    5: 'MH/s',
+    6: 'MH/s',
+    7: 'MH/s',
+    8: 'MH/s',
+    9: 'MH/s',
+    10: 'MH/s',
+    11: 'MH/s',
+    12: 'MH/s',
+    13: 'kH/s',
+    14: 'MH/s',
+    15: 'kH/s',
+    16: 'GH/s',
+    17: 'GH/s',
+    18: 'GH/s',
+    19: 'kH/s',
+    20: 'MH/s',
+    21: 'GH/s',
+    22: 'kH/s',
+    23: 'GH/s',
+    24: 'Sol/s',
+    25: 'GH/s',
+    26: 'MH/s',
+    27: 'GH/s',
+    28: 'GH/s',
+    29: 'MH/s',
+    30: 'kH/s',
+    31: 'kH/s',
+    32: 'MH/s',
+    33: 'MH/s',
+    34: 'kH/s',
+    35: 'TH/s',
+    36: 'Sol/s',
+    37: 'Sol/s',
+    38: 'G/s',
+    39: 'G/s',
+    40: 'MH/s',
+    41: 'MH/s',
+    42: 'kH/s',
+    43: 'G/s',
+}
+
 const ORDER_TYPES = {
     0: 'standard',
     1: 'fixed'
@@ -217,6 +264,10 @@ class NiceHashClient {
 
     static getLocationNameByNiceHashNumber(number) {
         return LOCATIONS[number] || null;
+    }
+
+    static getAlgorithmUnitsByNiceHashNumber(number) {
+        return ALGORITHM_UNITS[number] || null;
     }
 
     /**
