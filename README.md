@@ -1,5 +1,7 @@
 # NiceHashJS
 
+[![Build Status](https://travis-ci.org/dannychua/nicehashjs.svg?branch=master)](https://travis-ci.org/dannychua/nicehashjs)
+
 The javascript wrapper for Nicehash API.
 
 ## Installation
