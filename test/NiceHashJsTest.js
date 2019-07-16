@@ -1,9 +1,9 @@
-const NiceHashJS = require('../nicehashjs');
-const nhClient = new NiceHashJS();
+const NiceHashJS = require('../NiceHashJs');
 const should = require('chai').should();
 const nock = require('nock');
 
-let  nh = new NiceHashJS({apiId: 12345, apiKey: 12345});
+const nhClient = new NiceHashJS();
+const nh = new NiceHashJS({apiId: 12345, apiKey: 12345});
 
 context('NiceHashClient', () => {
     beforeEach(() => {
