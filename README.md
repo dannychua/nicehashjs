@@ -5,6 +5,8 @@
 
 The javascript wrapper for Nicehash API.
 
+![alt text](./nicehashjs.jpg "Logo Title Text 1")
+
 ## Installation
 
     npm install --save nicehashjs
